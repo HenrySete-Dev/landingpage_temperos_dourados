@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit de Temperos Dourados | Sabor Premium para sua Cozinha</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* =================== GERAL =================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: #111111;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =================== ANIMAÇÕES =================== */
+        /* Animação de fade-in para elementos que surgem */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animação de escala para o botão CTA */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .animated {
+            opacity: 0; /* Esconde elementos inicialmente para a animação */
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animated.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =================== ÍCONES DOURADOS (SVG MASK) =================== */
+        .gold-icon {
+            display: block;
+            margin: 0 auto 15px;
+            width: 60px;
+            height: 60px;
+            background-color: #D4AF37; /* Cor dourada para o ícone */
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+        }
+
+        .icon-spices {
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 5C14 3.9 13.1 3 12 3S10 3.9 10 5C10 5.73 10.41 6.38 11 6.72V11L5.33 15.33C5.12 15.5 5 15.75 5 16V18C5 18.55 5.45 19 6 19H18C18.55 19 19 18.55 19 18V16C19 15.75 18.88 15.5 18.67 15.33L13 11V6.72C13.59 6.38 14 5.74 14 5Z'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M14 5C14 3.9 13.1 3 12 3S10 3.9 10 5C10 5.73 10.41 6.38 11 6.72V11L5.33 15.33C5.12 15.5 5 15.75 5 16V18C5 18.55 5.45 19 6 19H18C18.55 19 19 18.55 19 18V16C19 15.75 18.88 15.5 18.67 15.33L13 11V6.72C13.59 6.38 14 5.74 14 5Z'/%3E%3C/svg%3E");
+        }
+
+        .icon-package {
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.41 21.94 12.21 22 12 22C11.79 22 11.59 21.94 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.59 2.06 11.79 2 12 2C12.21 2 12.41 2.06 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5M12 4.15L6.04 7.5L12 10.85L17.96 7.5L12 4.15M5 15.91L11 19.29V12.58L5 9.21V15.91M19 15.91V9.21L13 12.58V19.29L19 15.91Z'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 16.5C21 16.88 20.79 17.21 20.47 17.38L12.57 21.82C12.41 21.94 12.21 22 12 22C11.79 22 11.59 21.94 11.43 21.82L3.53 17.38C3.21 17.21 3 16.88 3 16.5V7.5C3 7.12 3.21 6.79 3.53 6.62L11.43 2.18C11.59 2.06 11.79 2 12 2C12.21 2 12.41 2.06 12.57 2.18L20.47 6.62C20.79 6.79 21 7.12 21 7.5V16.5M12 4.15L6.04 7.5L12 10.85L17.96 7.5L12 4.15M5 15.91L11 19.29V12.58L5 9.21V15.91M19 15.91V9.21L13 12.58V19.29L19 15.91Z'/%3E%3C/svg%3E");
+        }
+
+        .icon-premium {
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z'/%3E%3C/svg%3E");
+        }
+
+        /* =================== HEADER =================== */
+        header {
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 36px;
+            font-weight: 700;
+            color: #D4AF37; /* Dourado */
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4); /* Leve brilho */
+        }
+        
+        /* =================== HERO SECTION =================== */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://i.ytimg.com/vi/Bor5lkRyeGo/sddefault.jpg') center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 80px 0;
+            text-align: center;
+            justify-content: center; /* Centraliza o conteúdo horizontalmente */
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 30px;
+            margin-top: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden; /* Garante que o iframe siga o border-radius */
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 450px; /* Altura fixa para o vídeo */
+            display: block; /* Remove espaçamento extra abaixo do iframe */
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 54px;
+            margin-bottom: 20px;
+            color: #D4AF37; /* Dourado */
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6); /* Mais brilho */
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: #D4AF37; /* Dourado */
+            color: #111111;
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid transparent; /* Adiciona borda para transição */
+        }
+        
+        .cta-btn:hover {
+            background-color: #ffffff;
+            color: #D4AF37; /* Inverte as cores no hover */
+            transform: translateY(-5px) scale(1.02); /* Levemente maior e para cima */
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5); /* Sombra mais intensa */
+            border-color: #D4AF37; /* Borda dourada no hover */
+        }
+        
+        /* =================== SEÇÃO DE CARACTERÍSTICAS (FEATURES) =================== */
+        .features {
+            padding: 100px 0;
+            background-color: #0D0D0D;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #D4AF37; /* Dourado */
+            position: relative;
+            padding-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #D4AF37; /* Dourado */
+            border-radius: 5px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #1A1A1A;
+            transition: all 0.4s ease; /* Transição mais suave */
+            border: 1px solid #222; /* Borda sutil */
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-12px); /* Movimento para cima mais pronunciado */
+            box-shadow: 0 18px 35px rgba(212, 175, 55, 0.2); /* Sombra mais dramática */
+            border-color: #D4AF37; /* Borda dourada no hover */
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #D4AF37; /* Dourado */
+            line-height: 1; /* Garante que o ícone não adicione altura extra */
+        }
+        
+        .feature-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #D4AF37; /* Dourado */
+            font-weight: 600;
+        }
+        
+        /* =================== SEÇÃO DE PRODUTO (PRODUCT) =================== */
+        .products {
+            padding: 100px 0;
+            background-color: #111111;
+        }
+        
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px; /* Espaçamento entre imagem e info */
+        }
+        
+        .product-image {
+            max-width: 100%;
+            width: 600px; /* Largura máxima para a imagem */
+            height: auto;
+            border-radius: 15px; /* Bordas mais arredondadas */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Sombra mais proeminente */
+            transition: transform 0.3s ease-in-out; /* Animação na imagem */
+        }
+
+        .product-image:hover {
+            transform: scale(1.02); /* Leve zoom na imagem */
+        }
+        
+        .product-info {
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .product-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #D4AF37; /* Dourado */
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .product-description {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+        
+        /* =================== SEÇÃO DE TEMPEROS (SPICES) =================== */
+        .spices {
+            padding: 100px 0;
+            background-color: #0D0D0D;
+        }
+        
+        .spices-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .spice-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #1A1A1A;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            position: relative; /* Para o tag de bônus */
+        }
+        
+        .spice-item:hover {
+            border-color: #D4AF37; /* Dourado */
+            transform: translateY(-8px); /* Mais sutil que o feature-item */
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.15);
+        }
+        
+        .spice-name {
+            font-size: 22px; /* Aumentado um pouco */
+            margin-bottom: 10px;
+            color: #D4AF37; /* Dourado */
+            font-weight: 600;
+        }
+
+        .spice-item p {
+            font-size: 16px;
+            color: #cccccc;
+        }
+        
+        .bonus-item {
+            background-color: #222;
+            border: 2px solid #D4AF37; /* Borda mais grossa para o bônus */
+            padding-top: 50px; /* Espaço para o tag */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px; /* Garante altura mínima para o bônus */
+        }
+
+        .bonus-item:hover {
+            transform: scale(1.01); /* Leve zoom no item bônus */
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.3);
+        }
+        
+        .bonus-tag {
+            display: inline-block;
+            background-color: #D4AF37; /* Dourado */
+            color: #111111;
+            padding: 8px 20px; /* Padding maior */
+            border-radius: 25px; /* Mais arredondado */
+            margin-bottom: 15px;
+            font-weight: 800; /* Mais negrito */
+            font-size: 14px;
+            text-transform: uppercase;
+            position: absolute; /* Posição absoluta para o tag */
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        }
+        
+        /* =================== SEÇÃO DE PREÇOS (PRICING) =================== */
+        .pricing {
+            padding: 100px 0;
+            background-color: #111111;
+            text-align: center;
+        }
+        
+        .price-tag {
+            font-size: 72px;
+            font-weight: 800;
+            color: #D4AF37; /* Dourado */
+            margin: 20px 0;
+            line-height: 1; /* Ajusta a altura da linha */
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.7); /* Grande brilho no preço */
+        }
+        
+        .price-tag small {
+            font-size: 30px;
+            font-weight: 400;
+            vertical-align: super; /* Alinha o ,90 mais alto */
+        }
+        
+        .price-description {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 32px;
+            margin-right: 15px;
+            font-weight: 500;
+        }
+
+        /* =================== TESTEMUNHOS (TESTIMONIALS) =================== */
+        .testimonials {
+            padding: 100px 0;
+            background-color: #0D0D0D;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .testimonial-item {
+            background-color: #1A1A1A;
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-item:hover {
+            border-color: #D4AF37;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(212, 175, 55, 0.15);
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #e0e0e0;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px; /* Adiciona espaçamento superior */
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 3px solid #D4AF37; /* Borda mais grossa no avatar */
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .testimonial-name {
+            font-weight: 700;
+            color: #D4AF37; /* Dourado */
+            font-size: 18px;
+        }
+
+        .testimonial-author p:last-child {
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        .testimonial-quote {
+            position: absolute;
+            top: 10px; /* Ajusta a posição da aspas */
+            right: 15px;
+            font-size: 80px; /* Aumenta o tamanho da aspas */
+            color: rgba(212, 175, 55, 0.08); /* Mais sutil */
+            font-family: Georgia, serif;
+            line-height: 1; /* Garante que não afete o layout */
+            z-index: 1; /* Garante que a aspas fique atrás do texto */
+        }
+
+        /* =================== CHAMADA PARA AÇÃO (CTA) =================== */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUTbrrhdWp0NFkkUniNW4kKIvXhj_Bk2rqU07Ks6etvJ4bTXLqWe7ugjtS-RgKNWl_xDVUl0uOh5ABnawPBpDGxatfz-_BlR1ixrhOAlgIZKsO1ZOJYyNvy68hTGWt7SJhVYyQQd1lzHf8iJEu7wy5FJcW1PHnLxQB-VuDzIV2NAzJrw/s1600/hero_temperos_e_condimentos.png') center/cover;
+            background-attachment: fixed; /* Efeito Parallax */
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            color: #D4AF37; /* Dourado */
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            font-weight: 800;
+        }
+        
+        .cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e0e0e0;
+        }
+        
+        /* =================== RODAPÉ (FOOTER) =================== */
+        footer {
+            padding: 50px 0;
+            background-color: #0A0A0A;
+            text-align: center;
+            border-top: 1px solid #222; /* Linha divisória sutil */
+        }
+        
+        .footer-logo {
+            font-size: 28px; /* Aumentado um pouco */
+            font-weight: 700;
+            color: #D4AF37; /* Dourado */
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-links {
+            margin-bottom: 20px;
+            display: flex; /* Para centralizar os links */
+            justify-content: center;
+            flex-wrap: wrap; /* Quebra de linha em telas pequenas */
+        }
+        
+        .footer-links a {
+            color: #ffffff;
+            margin: 0 15px; /* Espaçamento maior */
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .footer-links a:hover {
+            color: #D4AF37; /* Dourado */
+            text-decoration: underline; /* Sublinhado no hover */
+        }
+        
+        .copyright {
+            color: #777;
+            font-size: 14px;
+            margin-top: 20px; /* Espaçamento superior */
+        }
+        
+        /* =================== AJUSTES RESPONSIVOS =================== */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 19px;
+            }
+
+            .video-container iframe {
+                height: 380px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .product-image {
+                width: 100%;
+                max-width: 500px;
+            }
+
+            .cta h2 {
+                font-size: 40px;
+            }
+
+            .cta p {
+                font-size: 18px;
+            }
+
+            .price-tag {
+                font-size: 64px;
+            }
+
+            .price-tag small {
+                font-size: 26px;
+            }
+
+            .original-price {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 38px;
+                letter-spacing: 2px;
+            }
+            
+            .hero p {
+                font-size: 17px;
+            }
+
+            .video-container iframe {
+                height: 300px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .price-tag {
+                font-size: 50px;
+            }
+            
+            .original-price {
+                font-size: 24px;
+            }
+            
+            .cta h2 {
+                font-size: 32px;
+            }
+
+            .cta p {
+                font-size: 16px;
+            }
+
+            .feature-item, .spice-item, .testimonial-item {
+                padding: 25px;
+            }
+
+            .feature-title {
+                font-size: 22px;
+            }
+
+            .spice-name {
+                font-size: 20px;
+            }
+
+            .testimonial-text {
+                font-size: 16px;
+            }
+
+            .testimonial-avatar {
+                width: 50px;
+                height: 50px;
+            }
+
+            .testimonial-name {
+                font-size: 16px;
+            }
+
+            .footer-links a {
+                margin: 0 10px;
+                font-size: 15px;
+            }
+
+            /* Em telas menores, o bônus volta a ocupar a linha inteira */
+            .bonus-item {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (min-width: 769px) {
+            /* Para telas maiores que 768px (tablets e desktops) */
+            .spices-list {
+                /* Define 4 colunas se houver espaço suficiente. Ajuste 200px para o min-width do item. */
+                grid-template-columns: repeat(4, 1fr);
+                gap: 30px;
+            }
+
+            /* Faz o item bônus ocupar 2 colunas */
+            .bonus-item {
+                grid-column: span 2; /* Ocupa duas colunas */
+                justify-self: center; /* Centraliza o item bônus se ele ocupar 2 colunas e houver espaço sobrando */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 28px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+                line-height: 1.3;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cta-btn {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+
+            .video-container iframe {
+                height: 220px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 40px;
+            }
+
+            .features-grid, .spices-list, .testimonial-grid {
+                grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+            }
+
+            .price-tag {
+                font-size: 40px;
+            }
+
+            .price-tag small {
+                font-size: 22px;
+            }
+
+            .original-price {
+                font-size: 20px;
+            }
+
+            .price-description {
+                font-size: 18px;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+
+            .cta p {
+                font-size: 15px;
+            }
+
+            .footer-logo {
+                font-size: 24px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .footer-links a {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">KIT DE TEMPEROS DOURADOS</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content animated">
+            <h1>Eleve Sua Culinária<br>ao Patamar Premium</h1>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/HFn0aGGSF7k" title="Kit de Temperos Dourados" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p>Descubra o kit completo com 11 temperos selecionados em embalagens exclusivas que preservam o frescor e o sabor autêntico de cada especiaria.</p>
+            <a href="#pricing" class="cta-btn">Adquira Agora</a>
+            <p style="margin-top: 20px; font-size: 16px; color: #D4AF37;">Whatsapp para compras: <strong>(11) 96705-6347</strong></p>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Por que escolher nosso Kit de Temperos?</h2>
+            <div class="features-grid">
+                <div class="feature-item animated">
+                    <div class="gold-icon icon-premium"></div>
+                    <h3 class="feature-title">Qualidade Premium</h3>
+                    <p>Temperos frescos selecionados cuidadosamente para garantir o melhor sabor em cada preparação.</p>
+                </div>
+                <div class="feature-item animated">
+                    <div class="gold-icon icon-package"></div>
+                    <h3 class="feature-title">Embalagem Exclusiva</h3>
+                    <p>Design elegante que preserva o frescor dos temperos e protege contra umidade, garantindo durabilidade.</p>
+                </div>
+                <div class="feature-item animated">
+                    <div class="gold-icon icon-spices"></div>
+                    <h3 class="feature-title">Sabor Incomparável</h3>
+                    <p>Combinação perfeita de temperos que transformarão suas receitas em experiências gastronômicas excepcionais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">O Kit Perfeito Para Sua Cozinha</h2>
+            <div class="product-container">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUTbrrhdWp0NFkkUniNW4kKIvXhj_Bk2rqU07Ks6etvJ4bTXLqWe7ugjtS-RgKNWl_xDVUl0uOh5ABnawPBpDGxatfz-_BlR1ixrhOAlgIZKsO1ZOJYyNvy68hTGWt7SJhVYyQQd1lzHf8iJEu7wy5FJcW1PHnLxQB-VuDzIV2NAzJrw/s1600/hero_temperos_e_condimentos.png" alt="Kit de Temperos Dourados" class="product-image animated">
+                <div class="product-info animated">
+                    <h3 class="product-title">Kit de Temperos Dourados</h3>
+                    <p class="product-description">Nosso kit de temperos dourados vem em uma embalagem sofisticada que além de embelezar sua cozinha, preserva o sabor e aroma dos temperos por muito mais tempo. Com design funcional, permite fácil organização e acesso rápido a todos os temperos durante o preparo de suas receitas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="spices" id="spices">
+        <div class="container">
+            <h2 class="section-title">Conheça Nossos Temperos Premium</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: #ccc;">O kit contém 10 temperos especiais + 1 item bônus exclusivo</p>
+            <div class="spices-list">
+                <div class="spice-item animated">
+                    <h3 class="spice-name">Açafrão Premium</h3>
+                    <p>Especiaria nobre com aroma intenso e coloração marcante para seus pratos.</p>
+                </div>
+                <div class="spice-item animated">
+                    <h3 class="spice-name">Alho Frito</h3>
+                    <p>Sabor intenso de alho dourado que incrementa qualquer preparação.</p>
+                </div>
+                <div class="spice-item animated">
+                    <h3 class="spice-name">Chimichurri Suave</h3>
+                    <p>Blend perfeito para carnes grelhadas com notas aromáticas equilibradas.</p>
+                </div>
+                <div class="spice-item animated">
+                    <h3 class="spice-name">Ervas Finas</h3>
+                    <p>Combinação clássica de ervas mediterrâneas para refinar suas receitas.</p>
+                </div>
+                <div class="spice-item animated">
+                    <h3 class="spice-name">Mix Cebola, Alho & Salsa</h3>
+                    <p>O trio perfeito para realçar o sabor de qualquer prato do dia a dia.</p>
+                </div>
+                <div class="spice-item animated">
+                    <h3 class="spice-name">Páprica Defumada</h3>
+                    <p>Sabor defumado e levemente picante que transforma pratos simples em especiais.</p>
+                </div>
+                <div class="spice-item animated">
+                    <h3 class="spice-name">Louro</h3>
+                    <p>Folhas selecionadas que conferem aroma único para molhos e ensopados.</p>
+                </div>
+                <div class="spice-item animated">
+                    <h3 class="spice-name">Salsa Premium</h3>
+                    <p>Salsa de alta qualidade que preserva todo o frescor e aroma da erva.</p>
+                </div>
+                <div class="spice-item animated">
+                    <h3 class="spice-name">Tempero Baiano</h3>
+                    <p>Blend tradicional com o autêntico sabor da culinária baiana.</p>
+                </div>
+                <div class="spice-item animated">
+                    <h3 class="spice-name">Urucum</h3>
+                    <p>Coloração natural e sabor suave para diversos tipos de preparações.</p>
+                </div>
+                <div class="spice-item bonus-item animated">
+                    <span class="bonus-tag">BÔNUS EXCLUSIVO</span>
+                    <h3 class="spice-name">Sal Rosa do Himalaia</h3>
+                    <p>Rico em minerais e com sabor delicado, este sal especial eleva qualquer prato a outro nível de sofisticação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Invista no Sabor da Sua Cozinha</h2>
+            <p style="color: #ccc;">Todo este kit premium por um valor inacreditável:</p>
+            <div class="price-container animated">
+                <span class="original-price">R$ 120,00</span>
+                <div class="price-tag">R$ 79<small>,90</small></div>
+                <p class="price-description">Menos de R$ 8,00 por tempero!</p>
+                <a href="https://wa.me/5511967056347?text=Olá,%20tenho%20interesse%20no%20kit%20de%20temperos%20premium!" target="_blank" class="cta-btn pulse-animation">Comprar Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">O Que Dizem Nossos Clientes</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-item animated">
+                    <p class="testimonial-text">"Desde que comecei a usar o Kit de Temperos Dourados, minhas receitas ganharam um sabor especial. A embalagem é linda e muito prática!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsyOB27VjpHeTszG_-6zRzc8fwx_C89yZRD-L7A_Ou_p1ZqY0VCjWB5A_Ih0KNSOnsYlK9fyoCStQePgvyL3LtufmgQYeLaG8XVEGeF4E-BjA0N7R4QKfp95EGJhPBLQdZ2sY0xOt80KsDVSqxG_ljR7gg6vMwvBeAbKOD5fAiJ38mGA/s1600/c7fbaa02-6674-4cdd-b060-caf068504794.png" alt="Fernanda" class="testimonial-avatar">
+                        <div>
+                            <p class="testimonial-name">Ana Paula</p>
+                            <p>Chef Amadora</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">"</div>
+                </div>
+                <div class="testimonial-item animated">
+                    <p class="testimonial-text">"O que mais me impressionou foi a qualidade dos temperos. São frescos e os aromas se mantêm por muito mais tempo graças à embalagem."</p>
+                    <div class="testimonial-author">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmX1qTLJZt9b87hkibB34CbjuXt7kzTFqsaNCbqYRl2O4uUi7W-GRQzG1-gL69k0TuTO6-ig_v6FUTYjTECMGMNdHU-ePje31G4TjoQSBBjnHFOxqq4gULow8S1G8pobI9Z-ypoEUeE_JWKyrVBiWTU9-bQ1IpOuLvw8Fg4lWTcB8q6g/s1600/0dd24380-60fa-4d53-8325-e5548b405b6f.png" alt="Carlos Eduardo" class="testimonial-avatar">
+                        <div>
+                            <p class="testimonial-name">Carlos Eduardo</p>
+                            <p>Entusiasta Gastronômico</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">"</div>
+                </div>
+                <div class="testimonial-item animated">
+                    <p class="testimonial-text">"Presente perfeito! Dei este kit para minha mãe e ela adorou tanto o design quanto a variedade dos temperos. Valeu cada centavo!"</p>
+                    <div class="testimonial-author">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqhzwdyLznQ__gL5NBjcBQQTNbcQO7w3C4wWX1CZ3YPBnVZpX9-KrkytlMlPczT_z_5q-mJ5xE4lpAW2TuiTdW69rnSg8eZ_XiWoeIOfjdAE8SYG1Wn98-7kYRcIz8EKmX0KZX-9DLQ36fjl3WL0mVuo9R1p3xuIOXN_k2k4LJv7SMfUQYUGyQ4hymuGs/s320/0009.png" alt="Fernanda" class="testimonial-avatar">
+                        <div>
+                            <p class="testimonial-name">Fernanda</p>
+                            <p>Cliente Satisfeita</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote">"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Transforme Suas Receitas Hoje Mesmo</h2>
+            <p>Não perca a oportunidade de elevar sua culinária com nosso exclusivo Kit de Temperos Dourados. Embalagem premium, temperos selecionados e um bônus especial!</p>
+            <a href="https://wa.me/5511967056347?text=Olá,%20tenho%20interesse%20no%20kit%20de%20temperos%20premium!" target="_blank" class="cta-btn pulse-animation">Garantir Meu Kit Agora</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">KIT DE TEMPEROS DOURADOS</div>
+            <div style="margin-bottom: 20px; font-size: 18px;">
+                <p>Whatsapp: <a href="https://wa.me/5511967056347" style="color: #D4AF37; text-decoration: none; transition: color 0.3s ease;">(11) 96705-6347</a></p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Contato</a>
+            </div>
+            <p class="copyright">© 2025 Kit de Temperos Dourados. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observer para animações de fade-in ao scroll
+            const animatedElements = document.querySelectorAll('.animated');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target); // Para animar apenas uma vez
+                    }
+                });
+            }, { threshold: 0.1 }); // Começa a animar quando 10% do elemento está visível
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Adiciona a animação de "pulse" ao botão de CTA no Hero
+            const heroCtaBtn = document.querySelector('.hero .cta-btn');
+            if (heroCtaBtn) {
+                heroCtaBtn.style.animation = 'pulse 2s infinite ease-in-out';
+            }
+        });
+    </script>
+</body>
+</html>
